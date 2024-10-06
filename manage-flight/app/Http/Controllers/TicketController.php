@@ -55,7 +55,10 @@ class TicketController extends Controller
      */
     public function edit(Ticket $ticket)
     {
-        //
+        $users=User::where('is_active', 1)->get();
+        $locations=Location::where('is_active', 1)->get();
+        return view('admin.ticket.edit', compact('users', 'locations', 'ticket'));
+
     }
 
     /**
@@ -63,7 +66,12 @@ class TicketController extends Controller
      */
     public function update(UpdateTicketRequest $request, Ticket $ticket)
     {
-        //
+        $status=$ticket->update($request->validated());
+        if ($status) {
+            return to_route('tickets.index');
+        }else{
+            return to_route('tickets.edit', $ticket);
+        }
     }
 
     /**

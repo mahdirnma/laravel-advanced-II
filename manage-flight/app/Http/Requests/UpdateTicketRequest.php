@@ -11,7 +11,7 @@ class UpdateTicketRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,13 @@ class UpdateTicketRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'type'=>'required|string',
+            'airline'=>'required|string',
+            'seat'=>'required|numeric',
+            'time'=>'required',
+            'location_id'=>'required|integer',
+            'user_id'=>'required|integer',
+
         ];
     }
 }
