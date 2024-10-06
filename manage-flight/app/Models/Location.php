@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -18,5 +19,13 @@ class Location extends Model
     public function tickets()
     {
         return $this->hasMany(Ticket::class);
+    }
+    protected function title():Attribute
+    {
+        return new Attribute(
+            get: function (){
+                return $this->country.' , '.$this->city.' , '.$this->airport;
+            }
+        );
     }
 }

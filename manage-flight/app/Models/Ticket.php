@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -24,5 +25,13 @@ class Ticket extends Model
     }
     public function user(){
         return $this->belongsTo(User::class);
+    }
+    protected function title():Attribute
+    {
+        return new Attribute(
+            get: function (){
+                return 'Ticket'.$this->id.'_'.$this->seat.$this->airline.'_'.$this->type;
+            }
+        );
     }
 }
