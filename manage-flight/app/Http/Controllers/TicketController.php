@@ -13,7 +13,8 @@ class TicketController extends Controller
      */
     public function index()
     {
-        //
+        $tickets = Ticket::where('is_active', 1)->paginate(2);
+        return view('admin.ticket.index', compact('tickets'));
     }
 
     /**
