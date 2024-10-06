@@ -22,7 +22,7 @@ class LocationController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.location.create');
     }
 
     /**
@@ -30,7 +30,10 @@ class LocationController extends Controller
      */
     public function store(StoreLocationRequest $request)
     {
-        //
+        $location= Location::create($request->validated());
+        if ($location) {
+            return to_route('locations.index');
+        }
     }
 
     /**
