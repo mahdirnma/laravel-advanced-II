@@ -13,7 +13,8 @@ class LocationController extends Controller
      */
     public function index()
     {
-        //
+        $locations = Location::where('is_active', 1)->paginate(2);
+        return view('admin.location.index', compact('locations'));
     }
 
     /**
