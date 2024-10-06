@@ -14,4 +14,9 @@ class UserController extends Controller
         $tickets=Ticket::where('is_active',1)->count();
         return view('admin.dashboard',compact('locations','tickets'));
     }
+
+    public function login()
+    {
+        return view('auth.login');
+    }
 }
