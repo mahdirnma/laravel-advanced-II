@@ -40,7 +40,7 @@
                                     <button type="submit" class="text-cyan-600">update</button>
                                 </form>
                             </td>
-                            <td class="text-center">{{$ticket->user->firstname}} {{$ticket->user->lastname}}</td>
+                            <td class="text-center">{{$ticket->user->fullname}}</td>
                             <td class="text-center">{{$ticket->location->title}}</td>
                             <td class="text-center">{{$ticket->time}}</td>
                             <td class="text-center">{{$ticket->seat}}</td>

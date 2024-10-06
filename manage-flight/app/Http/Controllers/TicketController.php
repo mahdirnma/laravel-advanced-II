@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Location;
 use App\Models\Ticket;
 use App\Http\Requests\StoreTicketRequest;
 use App\Http\Requests\UpdateTicketRequest;
+use App\Models\User;
 
 class TicketController extends Controller
 {
@@ -22,7 +24,9 @@ class TicketController extends Controller
      */
     public function create()
     {
-        //
+        $users=User::where('is_active', 1)->get();
+        $locations=Location::where('is_active', 1)->get();
+        return view('admin.ticket.create', compact('users', 'locations'));
     }
 
     /**
@@ -30,7 +34,12 @@ class TicketController extends Controller
      */
     public function store(StoreTicketRequest $request)
     {
-        //
+        $ticket = Ticket::create($request->validated());
+        if ($ticket) {
+            return to_route('tickets.index');
+        }else{
+            return to_route('tickets.create');
+        }
     }
 
     /**

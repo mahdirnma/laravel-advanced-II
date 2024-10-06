@@ -41,6 +41,15 @@ class User extends Authenticatable
             }
         );
     }
+    protected function fullname():Attribute
+    {
+        return new Attribute(
+            get: function (){
+                $fullname=$this->firstname.' '.$this->lastname;
+                return $fullname;
+            }
+        );
+    }
 
     /**
      * The attributes that should be hidden for serialization.
