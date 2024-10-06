@@ -70,6 +70,7 @@ class LocationController extends Controller
      */
     public function destroy(Location $location)
     {
-        //
+        $location->update(['is_active' => 0]);
+        return to_route('locations.index');
     }
 }
