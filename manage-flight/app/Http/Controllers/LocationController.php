@@ -49,7 +49,7 @@ class LocationController extends Controller
      */
     public function edit(Location $location)
     {
-        //
+        return view('admin.location.edit', compact('location'));
     }
 
     /**
@@ -57,7 +57,12 @@ class LocationController extends Controller
      */
     public function update(UpdateLocationRequest $request, Location $location)
     {
-        //
+        $status=$location->update($request->validated());
+        if ($status) {
+            return to_route('locations.index');
+        }else{
+            return to_route('locations.edit', $location);
+        }
     }
 
     /**

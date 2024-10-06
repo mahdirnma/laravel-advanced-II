@@ -22,5 +22,5 @@ Route::post('login', [AuthController::class, 'login'])->name('login');
 Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
 
-Route::resource('locations', LocationController::class)->middleware('auth');
+Route::resource('locations', LocationController::class)->except('show')->middleware('auth');
 Route::resource('tickets', TicketController::class)->middleware('auth');

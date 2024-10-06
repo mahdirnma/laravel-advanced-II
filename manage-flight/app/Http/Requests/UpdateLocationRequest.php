@@ -11,7 +11,7 @@ class UpdateLocationRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,10 @@ class UpdateLocationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'city'=>'required|string',
+            'country' => 'required',
+            'airport' => 'required',
+
         ];
     }
 }
