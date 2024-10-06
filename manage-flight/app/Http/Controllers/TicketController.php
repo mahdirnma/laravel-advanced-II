@@ -79,6 +79,7 @@ class TicketController extends Controller
      */
     public function destroy(Ticket $ticket)
     {
-        //
+        $ticket->update(['is_active' => 0]);
+        return to_route('tickets.index');
     }
 }
