@@ -1,7 +1,7 @@
 <?php
 
+use App\Http\Controllers\IngrediantController;
 use App\Http\Controllers\ProductController;
-use App\Models\Ingrediant;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,5 +16,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::resource('products', ProductController::class);
-Route::resource('ingredients', Ingrediant::class);
+Route::resource('ingredients', IngrediantController::class);
 Route::redirect('/', '/products');

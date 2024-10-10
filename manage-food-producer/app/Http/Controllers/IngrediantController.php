@@ -13,7 +13,8 @@ class IngrediantController extends Controller
      */
     public function index()
     {
-        //
+        $ingredients = Ingrediant::where('is_active', 1)->paginate(2);
+        return view('admin.ingredient.index', compact('ingredients'));
     }
 
     /**

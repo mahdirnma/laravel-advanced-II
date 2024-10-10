@@ -16,10 +16,8 @@
             <nav>
                 <ul class="flex flex-row-reverse">
                     <li class="w-44 h-full flex justify-center items-center font-mono text-balance"><a href="{{route('products.index')}}">products</a></li>
-{{--
-                    <li class="w-44 h-full flex justify-center items-center font-mono text-balance"><a href="{{route('locations.index')}}">locations</a></li>
-                    <li class="w-44 h-full flex justify-center items-center font-mono text-balance"><a href="{{route('tickets.index')}}">tickets</a></li>
---}}
+                    <li class="w-44 h-full flex justify-center items-center font-mono text-balance"><a href="{{route('ingredients.index')}}">ingredients</a></li>
+{{--                    <li class="w-44 h-full flex justify-center items-center font-mono text-balance"><a href="{{route('tickets.index')}}">tickets</a></li>--}}
                 </ul>
             </nav>
         </div>
