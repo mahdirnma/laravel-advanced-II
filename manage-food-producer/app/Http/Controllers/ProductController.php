@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use App\Models\Sale;
 
 class ProductController extends Controller
 {
@@ -13,7 +14,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::where('is_active', 1)->paginate(2);
+        return view('admin.product.index', compact('products'));
     }
 
     /**
@@ -37,7 +39,8 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
+        $sales=Sale::where('is_active', 1)->paginate(2);
+        return view('admin.product.sale', compact('product', 'sales'));
     }
 
     /**

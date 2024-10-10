@@ -14,4 +14,7 @@ class Sale extends Model
         'date',
         'is_active'
     ];
+    public function product(){
+        return $this->belongsTo(Product::class);
+    }
 }

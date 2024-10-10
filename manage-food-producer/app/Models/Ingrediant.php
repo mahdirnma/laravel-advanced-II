@@ -15,4 +15,7 @@ class Ingrediant extends Model
         'product_id',
         'is_active'
     ];
+    public function product(){
+        return $this->belongsTo(Product::class);
+    }
 }

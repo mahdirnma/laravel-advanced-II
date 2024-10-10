@@ -15,4 +15,14 @@ class Product extends Model
         'profit',
         'is_active',
     ];
+
+    public function ingredients()
+    {
+        return $this->hasOne(Ingrediant::class);
+    }
+
+    public function sales()
+    {
+        return $this->hasMany(Sale::class);
+    }
 }
