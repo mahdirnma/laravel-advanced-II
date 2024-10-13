@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Tag;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,6 +13,15 @@ class TagSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Tag::create([
+            'title' => '#business',
+        ]);
+        Tag::create([
+            'title' => '#finantial',
+        ]);
+        Tag::create([
+            'title' => '#science',
+        ]);
+
     }
 }
