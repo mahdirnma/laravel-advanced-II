@@ -91,6 +91,9 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        $post->update([
+            'is_active'=>0,
+        ]);
+        return to_route('posts.index');
     }
 }
