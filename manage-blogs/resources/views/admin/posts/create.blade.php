@@ -9,32 +9,43 @@
                 <h2 class="text-xl">add book</h2>
             </div>
             <div class="flex w-full h-4/5">
-                <form action="{{route('books.store')}}" method="post" class="w-full h-full flex flex-row-reverse">
+                <form action="{{route('posts.store')}}" method="post" enctype="multipart/form-data" class="w-full h-full flex flex-row-reverse">
                     @csrf
                     <div class="w-1/2 h-full flex flex-col items-end pr-20 relative">
                         <div class="w-5/6 h-auto flex flex-row-reverse justify-between pt-4 mb-6">
                             <label for="title" class="font-semibold ml-5">: title</label>
                             <input type="text" name="title" value="{{old('title')}}" id="value" class="w-2/5 h-8 rounded outline-0 p-2 border border-gray-400">
-                            @if($errors->has('title'))
-                                <p class="text-red-700">{{$errors->first('title')}}</p>
-                            @endif
+                            @error('title')
+                                <p class="text-red-700">{{$message}}</p>
+                            @enderror
                         </div>
                         <div class="w-5/6 h-auto flex flex-row-reverse justify-between pt-4 mb-6">
                             <label for="description" class="font-semibold ml-5">: description</label>
-                            <textarea name="description" id="description" cols="3" rows="3" class="w-2/5 h-8 rounded outline-0 pb-2 pt-1 px-2 border border-gray-400">{{old('description')}}</textarea>
-                            @if($errors->has('description'))
-                                <p class="text-red-700">{{$errors->first('description')}}</p>
-                            @endif
+                            <textarea name="description" id="description" cols="3" rows="3" class="w-2/5 h-32 rounded outline-0 pb-2 pt-1 px-2 border border-gray-400">{{old('description')}}</textarea>
+                            @error('description')
+                                <p class="text-red-700">{{$message}}</p>
+                            @enderror
                         </div>
                         <input type="submit" value="Add" class="absolute bottom-2 -left-10 text-white bg-gray-700 py-3 px-7 cursor-pointer rounded">
                     </div>
                     <div class="w-1/2 h-full flex flex-col items-end pr-20">
                         <div class="w-5/6 h-auto flex flex-row-reverse justify-between pt-4 mb-6">
-                            <label for="publication_year" class="font-semibold ml-5">: publication year</label>
-                            <input type="number" name="publication_year" min="1900" max="2024" value="{{old('publication_year')}}" id="key" class="w-2/5 h-8 rounded outline-0 p-2 border border-gray-400">
-                            @if($errors->has('publication_year'))
-                                <p class="text-red-700">{{$errors->first('publication_year')}}</p>
-                            @endif
+                            <label for="category" class="font-semibold ml-5">: category</label>
+                            <select name="category_id" id="category" class="w-2/5 h-8 rounded outline-0 pb-2 pt-1 px-2 border border-gray-400">
+                                @foreach($categories as $category)
+                                    <option value="{{$category->id}}">{{$category->title}}</option>
+                                @endforeach
+                            </select>
+                            @error('category')
+                            <p class="text-red-700">{{$message}}</p>
+                            @enderror
+                        </div>
+                        <div class="w-5/6 h-auto flex flex-row-reverse justify-between pt-4 mb-6">
+                            <label for="main_pic" class="font-semibold ml-5">: main pic</label>
+                            <input type="file" name="main_pic" id="main_pic">
+                            @error('main_pic')
+                                <p class="text-red-700">{{$message}}</p>
+                            @enderror
                         </div>
                     </div>
                 </form>
