@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Post;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
@@ -22,7 +23,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::where('is_active',1)->get();
+        return view('admin.posts.create',compact('categories'));
     }
 
     /**
@@ -30,7 +32,21 @@ class PostController extends Controller
      */
     public function store(StorePostRequest $request)
     {
-        //
+        $name='';
+        if ($image=$request->file('main_pic')) {
+            $name=time().'-'.$request->file('main_pic')->getClientOriginalName();
+            $image->move(public_path('/upload/'),$name);
+        }
+        $post= Post::create([
+            ...$request->validated(),
+            'main_pic'=>$name
+        ]);
+        if ($post) {
+            return to_route('posts.index');
+        }else{
+            return to_route('posts.create');
+        }
+
     }
 
     /**

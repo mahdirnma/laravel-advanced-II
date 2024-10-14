@@ -16,6 +16,7 @@
                         <td class="text-center">delete</td>
                         <td class="text-center">update</td>
                         <td class="text-center">tags</td>
+                        <td class="text-center">other pics</td>
                         <td class="text-center">main pic</td>
                         <td class="text-center">category</td>
                         <td class="text-center">description</td>
@@ -42,6 +43,12 @@
                                 <form action="{{route('posts.show',compact('post'))}}" method="get">
                                     @csrf
                                     <button type="submit" class="text-fuchsia-600">tags</button>
+                                </form>
+                            </td>
+                            <td class="text-center">
+                                <form action="{{--{{route('posts.show',compact('post'))}}--}}" method="get">
+                                    @csrf
+                                    <button type="submit" class="text-red-700">other pics</button>
                                 </form>
                             </td>
                             <td class="text-center"><img src="upload/{{$post->main_pic}}" alt="pic" class="inline-block w-36"></td>
