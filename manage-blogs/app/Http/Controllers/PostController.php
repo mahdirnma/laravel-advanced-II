@@ -46,7 +46,6 @@ class PostController extends Controller
         }else{
             return to_route('posts.create');
         }
-
     }
 
     /**
@@ -54,7 +53,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        //
+
     }
 
     /**
@@ -62,7 +61,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        $categories = Category::where('is_active',1)->get();
+        return view('admin.posts.edit',compact('post','categories'));
     }
 
     /**
