@@ -6,6 +6,8 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
+use App\Models\Tag;
+use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
@@ -48,26 +50,12 @@ class PostController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Post $post)
-    {
-
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Post $post)
     {
         $categories = Category::where('is_active',1)->get();
         return view('admin.posts.edit',compact('post','categories'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(UpdatePostRequest $request, Post $post)
     {
         $name='';
@@ -85,15 +73,28 @@ class PostController extends Controller
             return to_route('posts.edit',$post);
         }
     }
-
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(Post $post)
     {
         $post->update([
             'is_active'=>0,
         ]);
         return to_route('posts.index');
+    }
+    public function show(Post $post)
+    {
+        return view('admin.posts.tags',compact('post'));
+    }
+
+    public function addTag(Post $post)
+    {
+        $tags=Tag::where('is_active',1)->get();
+        return view('admin.posts.createTag',compact('post','tags'));
+    }
+
+    public function createTag(Post $post,Request $request)
+    {
+        $tag=$request->tag_id;
+        $post->tags()->attach($tag);
+        return to_route('posts.show',$post);
     }
 }

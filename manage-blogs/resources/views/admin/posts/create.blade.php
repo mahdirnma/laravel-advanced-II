@@ -1,12 +1,12 @@
 @extends('layout.app')
 @section('title')
-    add book
+    add post
 @endsection
 @section('content')
     <div class="w-full h-[88%] bg-gray-200 flex items-center justify-center">
         <div class="w-[90%] h-5/6 bg-white rounded-xl pt-3 flex flex-col items-center">
             <div class="w-[90%] h-1/5 flex justify-end items-center border-b">
-                <h2 class="text-xl">add book</h2>
+                <h2 class="text-xl">add post</h2>
             </div>
             <div class="flex w-full h-4/5">
                 <form action="{{route('posts.store')}}" method="post" enctype="multipart/form-data" class="w-full h-full flex flex-row-reverse">

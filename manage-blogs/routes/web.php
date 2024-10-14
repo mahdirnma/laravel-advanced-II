@@ -24,6 +24,8 @@ Route::post('login', [AuthController::class, 'login'])->name('login');
 Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::resource('posts', PostController::class)->middleware('auth');
+Route::get('/posts/addTag/{post}', [PostController::class, 'addTag'])->name('addTag')->middleware('auth');
+Route::post('/posts/createTag/{post}', [PostController::class, 'createTag'])->name('createTag')->middleware('auth');
 Route::resource('tags', TagController::class)->middleware('auth');
 Route::resource('categories', CategoryController::class)->middleware('auth');
 Route::resource('images', ImageController::class)->middleware('auth');
