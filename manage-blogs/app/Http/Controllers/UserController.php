@@ -8,7 +8,7 @@ class UserController extends Controller
 {
     public function index()
     {
-        return 22;
+        return view('admin.home');
     }
 
     public function login()
