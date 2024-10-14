@@ -19,8 +19,8 @@ Route::get('login', [UserController::class, 'login'])->name('login.show');
 Route::post('login', [AuthController::class, 'login'])->name('login');
 Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::resource('posts', 'PostController');
-Route::resource('tags', 'TagController');
-Route::resource('categories', 'CategoryController');
-Route::resource('images', 'ImageController');
+Route::resource('posts', 'PostController')->middleware('auth');
+Route::resource('tags', 'TagController')->middleware('auth');
+Route::resource('categories', 'CategoryController')->middleware('auth');
+Route::resource('images', 'ImageController')->middleware('auth');
 
