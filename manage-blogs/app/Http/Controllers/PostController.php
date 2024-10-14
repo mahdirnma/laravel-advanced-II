@@ -70,7 +70,20 @@ class PostController extends Controller
      */
     public function update(UpdatePostRequest $request, Post $post)
     {
-        //
+        $name='';
+        if ($image=$request->file('main_pic')) {
+            $name=time().'-'.$request->file('main_pic')->getClientOriginalName();
+            $image->move(public_path('/upload/'),$name);
+        }
+        $status=$post->update([
+            ...$request->validated(),
+            'main_pic'=>$name,
+        ]);
+        if ($status) {
+            return to_route('posts.index');
+        }else{
+            return to_route('posts.edit',$post);
+        }
     }
 
     /**
