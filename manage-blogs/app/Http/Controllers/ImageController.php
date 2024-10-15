@@ -30,7 +30,20 @@ class ImageController extends Controller
      */
     public function store(StoreImageRequest $request)
     {
-        //
+        $name='';
+        if($image = $request->file('url')){
+            $name = time().'-'.$image->getClientOriginalName();
+            $image->move('/upload/', $name);
+        }
+        $status=Image::create([
+            ...$request->validated(),
+            'url'=>$name
+        ]);
+        if($status){
+            return to_route('images.index');
+        }else{
+            return to_route('images.create');
+        }
     }
 
     /**
