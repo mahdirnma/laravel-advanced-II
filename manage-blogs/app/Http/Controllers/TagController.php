@@ -30,7 +30,12 @@ class TagController extends Controller
      */
     public function store(StoreTagRequest $request)
     {
-        //
+        $tag=Tag::create($request->validated());
+        if($tag){
+            return to_route('tags.index');
+        }else{
+            return to_route('tags.create');
+        }
     }
 
     /**
