@@ -33,7 +33,7 @@ class ImageController extends Controller
         $name='';
         if($image = $request->file('url')){
             $name = time().'-'.$image->getClientOriginalName();
-            $image->move('/upload/', $name);
+            $image->move(public_path().'/upload/', $name);
         }
         $status=Image::create([
             ...$request->validated(),

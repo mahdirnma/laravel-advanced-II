@@ -15,29 +15,35 @@
                     <tr class="h-12 border border-gray-400 border-b-2 border-b-gray-400">
                         <td class="text-center">delete</td>
                         <td class="text-center">update</td>
+                        <td class="text-center">image</td>
+                        <td class="text-center">alt</td>
+                        <td class="text-center">description</td>
                         <td class="text-center">title</td>
                     </tr>
                     </thead>
-                    <tbody>{{--
-                    @foreach($tags as $tag)
+                    <tbody>
+                    @foreach($images as $image)
                         <tr>
                             <td class="text-center">
-                                <form action="{{route('tags.destroy',compact('tag'))}}" method="post">
+                                <form action="{{route('images.destroy',compact('image'))}}" method="post">
                                     @csrf
                                     @method('delete')
                                     <button type="submit" class="text-green-600">delete</button>
                                 </form>
                             </td>
                             <td class="text-center">
-                                <form action="{{route('tags.edit',compact('tag'))}}" method="get">
+                                <form action="{{route('images.edit',compact('image'))}}" method="get">
                                     @csrf
                                     <button type="submit" class="text-cyan-600">update</button>
                                 </form>
                             </td>
-                            <td class="text-center">{{$tag->title}}</td>
+                            <td class="text-center"><img src="upload/{{$image->url}}" alt="{{$image->alt}}" class="w-36 inline-block"></td>
+                            <td class="text-center">{{$image->alt}}</td>
+                            <td class="text-center">{{$image->description}}</td>
+                            <td class="text-center">{{$image->title}}</td>
                         </tr>
                     @endforeach
-                    --}}</tbody>
+                    </tbody>
                 </table>
             </div>
 {{--            <div class="mt-5">{{$tags->links()}}</div>--}}
