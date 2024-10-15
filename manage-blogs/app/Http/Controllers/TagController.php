@@ -45,7 +45,13 @@ class TagController extends Controller
 
     public function update(UpdateTagRequest $request, Tag $tag)
     {
-        //
+        $status=$tag->update($request->validated());
+        if($status){
+            return to_route('tags.index');
+
+        }else{
+            return to_route('tags.edit',$tag);
+        }
     }
 
     /**
