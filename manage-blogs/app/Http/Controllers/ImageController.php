@@ -46,20 +46,9 @@ class ImageController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Image $image)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Image $image)
     {
-        //
+        return to_route('images.edit', compact('image'));
     }
 
     /**
@@ -67,7 +56,7 @@ class ImageController extends Controller
      */
     public function update(UpdateImageRequest $request, Image $image)
     {
-        //
+
     }
 
     /**
