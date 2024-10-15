@@ -13,7 +13,8 @@ class ImageController extends Controller
      */
     public function index()
     {
-        //
+        $images = Image::where('is_active', 1)->paginate(2);
+        return view('admin.images.index', compact('images'));
     }
 
     /**
