@@ -7,7 +7,7 @@
         <div class="w-[90%] h-5/6 bg-white rounded-xl pt-3 flex flex-col items-center">
             <div class="w-[90%] h-1/5 flex justify-between items-center border-b">
                 <a href="{{route('addTag',compact('post'))}}" class="px-10 py-3 rounded-xl font-light text-white bg-gray-800">add tag +</a>
-                <a href="{{--{{route('posts.create')}}--}}" class="px-10 py-3 rounded-xl font-light text-white bg-gray-800">update tags +</a>
+                <a href="{{route('editTag',compact('post'))}}" class="px-10 py-3 rounded-xl font-light text-white bg-gray-800">update tags +</a>
                 <h2 class="text-xl">{{$post->title}} tags</h2>
             </div>
             <div class="w-[90%] h-3/5 flex flex-col justify-center">

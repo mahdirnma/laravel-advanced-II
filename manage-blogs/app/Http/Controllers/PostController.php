@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateTagRequest;
 use App\Models\Category;
 use App\Models\Post;
 use App\Http\Requests\StorePostRequest;
@@ -96,5 +97,19 @@ class PostController extends Controller
         $tag=$request->tag_id;
         $post->tags()->attach($tag);
         return to_route('posts.show',$post);
+    }
+    public function editTag(Post $post)
+    {
+        $tags=Tag::where('is_active',1)->get();
+        return view('admin.posts.editTag',compact('post','tags'));
+    }
+    public function updateTag(Request $request, Post $post){
+        $tags=$request->tags;
+        $status=$post->tags()->sync($tags);
+        if ($status) {
+            return to_route('posts.show',$post);
+        }else{
+            return to_route('posts.edit',$post);
+        }
     }
 }

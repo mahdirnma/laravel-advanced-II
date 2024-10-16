@@ -48,7 +48,7 @@ class ImageController extends Controller
 
     public function edit(Image $image)
     {
-        return to_route('images.edit', compact('image'));
+        return to_route('images.edit',['image'=>6]);
     }
 
     /**
