@@ -15,11 +15,15 @@
                     <div class="w-1/2 h-full flex flex-col items-end pr-20 relative">
                         <div class="w-5/6 h-auto flex flex-row-reverse justify-between pt-4 mb-6">
                             <label for="category" class="font-semibold ml-5">: category</label>
-                            <select name="tag_id" id="tag_id" class="w-2/5 h-8 rounded outline-0 pb-2 pt-1 px-2 border border-gray-400">
-                                @foreach($tags as $tag)
-                                    <option value="{{$tag->id}}">{{$tag->title}}</option>
-                                @endforeach
-                            </select>
+
+                            @foreach($tags as $tag)
+                                <label for="" class="font-semibold ml-5">
+                                    <input type="checkbox" name="tags[]" id="tags" value="{{$tag->id}}">
+                                    {{$tag->title}}</label>
+                            @endforeach
+                            @error('tag_id')
+                            <p class="text-red-700">{{$message}}</p>
+                            @enderror
                             @error('tag_id')
                             <p class="text-red-700">{{$message}}</p>
                             @enderror
