@@ -46,7 +46,7 @@
                                 </form>
                             </td>
                             <td class="text-center">
-                                <form action="{{--{{route('posts.show',compact('post'))}}--}}" method="get">
+                                <form action="{{route('showImage',compact('post'))}}" method="get">
                                     @csrf
                                     <button type="submit" class="text-red-700">other pics</button>
                                 </form>

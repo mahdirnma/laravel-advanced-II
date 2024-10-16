@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\UpdateTagRequest;
 use App\Models\Category;
+use App\Models\Image;
 use App\Models\Post;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
@@ -111,5 +112,10 @@ class PostController extends Controller
         }else{
             return to_route('posts.edit',$post);
         }
+    }
+    public function showImage(Post $post)
+    {
+        $images=Image::where('is_active',1)->get();
+        return view('admin.posts.images',compact('post','images'));
     }
 }
