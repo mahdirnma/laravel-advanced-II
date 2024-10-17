@@ -137,5 +137,8 @@ class PostController extends Controller
     }
     public function updateImage(Post $post,Request $request)
     {
+        $images=$request->images;
+        $post->images()->sync($images);
+        return to_route('showImage',$post);
     }
 }
