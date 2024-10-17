@@ -18,7 +18,7 @@
                                 <label for="" class="font-semibold ml-5">
                                     <input type="checkbox" name="images[]" id="images" value="{{$image->id}}"
                                     @foreach($post->images as $data)
-                                        checked
+                                        {{$data->pivot->image_id==$image->id?'checked':''}}
                                     @endforeach
                                     >
                                     <img src="/upload/{{$image->url}}" alt="{{$image->alt}}">
