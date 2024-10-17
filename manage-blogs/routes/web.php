@@ -29,6 +29,10 @@ Route::post('/posts/createTag/{post}', [PostController::class, 'createTag'])->na
 Route::get('/posts/editTag/{post}', [PostController::class, 'editTag'])->name('editTag')->middleware('auth');
 Route::put('/posts/updateTag/{post}', [PostController::class, 'updateTag'])->name('updateTag')->middleware('auth');
 Route::get('/posts/showImage/{post}', [PostController::class, 'showImage'])->name('showImage')->middleware('auth');
+Route::get('/posts/addImage/{post}', [PostController::class, 'addImage'])->name('addImage')->middleware('auth');
+Route::post('/posts/createImage/{post}', [PostController::class, 'createImage'])->name('createImage')->middleware('auth');
+Route::get('/posts/editImage/{post}', [PostController::class, 'editImage'])->name('editImage')->middleware('auth');
+Route::put('/posts/updateImage/{post}', [PostController::class, 'updateImage'])->name('updateImage')->middleware('auth');
 
 Route::resource('tags', TagController::class)->except('show')->middleware('auth');
 Route::resource('categories', CategoryController::class)->except('show')->middleware('auth');

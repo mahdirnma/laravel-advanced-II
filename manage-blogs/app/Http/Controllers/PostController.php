@@ -118,4 +118,19 @@ class PostController extends Controller
         $images=Image::where('is_active',1)->get();
         return view('admin.posts.images',compact('post','images'));
     }
+
+    public function addImage(Post $post)
+    {
+        $images=Image::where('is_active',1)->get();
+        return view('admin.posts.createImage',compact('post','images'));
+    }
+    public function createImage(Post $post,Request $request)
+    {
+    }
+    public function editImage(Post $post)
+    {
+    }
+    public function updateImage(Post $post,Request $request)
+    {
+    }
 }

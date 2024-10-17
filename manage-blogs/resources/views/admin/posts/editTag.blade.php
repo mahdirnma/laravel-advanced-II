@@ -22,9 +22,6 @@
                                     @endforeach>
                                     {{$tag->title}}</label>
                             @endforeach
-                            @error('tag_id')
-                            <p class="text-red-700">{{$message}}</p>
-                            @enderror
                         </div>
                         <input type="submit" value="Update" class="absolute bottom-2 -left-10 text-white bg-gray-700 py-3 px-7 cursor-pointer rounded">
                     </div>
