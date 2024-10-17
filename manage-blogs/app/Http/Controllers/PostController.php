@@ -132,6 +132,8 @@ class PostController extends Controller
     }
     public function editImage(Post $post)
     {
+        $images=Image::where('is_active',1)->get();
+        return view('admin.posts.editImage',compact('post','images'));
     }
     public function updateImage(Post $post,Request $request)
     {
