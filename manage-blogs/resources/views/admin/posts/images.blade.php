@@ -14,17 +14,19 @@
                 <table class="w-full min-h-full border border-gray-400">
                     <thead>
                     <tr class="h-12 border border-gray-400 border-b-2 border-b-gray-400">
+                        <td class="text-center">pic</td>
+                        <td class="text-center">description</td>
                         <td class="text-center">title</td>
                     </tr>
                     </thead>
                     <tbody>
-{{--
-                    @foreach($post->tags as $tag)
+                    @foreach($post->images as $image)
                         <tr>
-                            <td class="text-center">{{$tag->title}}</td>
+                            <td class="text-center"><img src="/upload/{{$image->url}}" alt="{{$image->alt}}" class="w-36 inline-block"></td>
+                            <td class="text-center">{{$image->description}}</td>
+                            <td class="text-center">{{$image->title}}</td>
                         </tr>
                     @endforeach
---}}
                     </tbody>
                 </table>
             </div>

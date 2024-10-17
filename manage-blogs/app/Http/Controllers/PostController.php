@@ -126,6 +126,9 @@ class PostController extends Controller
     }
     public function createImage(Post $post,Request $request)
     {
+        $images=$request->images;
+        $post->images()->attach($images);
+        return to_route('showImage',$post);
     }
     public function editImage(Post $post)
     {
