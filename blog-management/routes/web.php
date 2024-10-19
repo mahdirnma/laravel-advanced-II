@@ -1,6 +1,10 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\PicController;
+use App\Http\Controllers\TagController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,3 +23,8 @@ Route::get('/', [UserController::class, 'index'])->name('home')->middleware('aut
 Route::get('login', [UserController::class, 'login'])->name('login.show');
 Route::post('login', [AuthController::class, 'login'])->name('login');
 Route::post('logout', [AuthController::class, 'logout'])->name('logout');
+
+Route::resource('tags', TagController::class)->except(['show'])->middleware('auth');
+Route::resource('categories', CategoryController::class)->except(['show'])->middleware('auth');
+Route::resource('pics', PicController::class)->except(['show'])->middleware('auth');
+Route::resource('blogs', BlogController::class)->except(['show'])->middleware('auth');
