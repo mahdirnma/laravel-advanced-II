@@ -31,7 +31,12 @@ class TagController extends Controller
     public function store(StoreTagRequest $request)
     {
         $tag=Tag::create($request->validated());
-        return to_route('tags.index');
+        if ($tag) {
+            return to_route('tags.index');
+
+        } else {
+            return to_route('tags.create');
+        }
     }
 
     public function edit(Tag $tag)
@@ -44,7 +49,12 @@ class TagController extends Controller
      */
     public function update(UpdateTagRequest $request, Tag $tag)
     {
-        //
+        $status=$tag->update($request->validated());
+        if ($status){
+            return to_route('tags.index');
+        }else{
+            return to_route('tags.edit',$tag);
+        }
     }
 
     /**
