@@ -62,6 +62,7 @@ class TagController extends Controller
      */
     public function destroy(Tag $tag)
     {
-        //
+        $tag->update(['is_active'=>0]);
+        return to_route('tags.index');
     }
 }
