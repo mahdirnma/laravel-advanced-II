@@ -30,7 +30,20 @@ class PicController extends Controller
      */
     public function store(StorePicRequest $request)
     {
-        //
+        $name='';
+        if ($pic = $request->file('url')) {
+            $name = time() . $pic->getClientOriginalName();
+            $pic->move(public_path().'/upload/', $name);
+        }
+        $pic=Pic::create([
+            ...$request->validated(),
+            'url' => $name,
+        ]);
+        if ($pic) {
+            return to_route('pics.index');
+        }else{
+            return to_route('pics.create');
+        }
     }
 
     /**
