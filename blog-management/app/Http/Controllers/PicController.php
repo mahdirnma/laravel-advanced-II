@@ -46,20 +46,9 @@ class PicController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Pic $pic)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Pic $pic)
     {
-        //
+        return view('admin.pics.edit', compact('pic'));
     }
 
     /**
