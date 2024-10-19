@@ -13,7 +13,8 @@ class PicController extends Controller
      */
     public function index()
     {
-        //
+        $pics=Pic::where('is_active', 1)->paginate(2);
+        return view('admin.pics.index', compact('pics'));
     }
 
     /**
