@@ -12,7 +12,7 @@
                 <form action="{{route('updateImage',compact('post'))}}" method="post" enctype="multipart/form-data" class="w-full h-full flex flex-row-reverse">
                     @csrf
                     @method('put')
-                    <div class="w-1/2 h-full flex flex-col items-end pr-20 relative">
+                    <div class="w-full h-full flex flex-col items-end pr-20 relative">
                         <div class="w-5/6 h-auto flex flex-row-reverse justify-between pt-4 mb-6">
                             @foreach($images as $image)
                                 <label for="" class="font-semibold ml-5">
@@ -21,11 +21,11 @@
                                         {{$data->pivot->image_id==$image->id?'checked':''}}
                                     @endforeach
                                     >
-                                    <img src="/upload/{{$image->url}}" alt="{{$image->alt}}">
+                                    <img src="/upload/{{$image->url}}" alt="{{$image->alt}}" class="w-36">
                                 </label>
                             @endforeach
                         </div>
-                        <input type="submit" value="Update" class="absolute bottom-2 -left-10 text-white bg-gray-700 py-3 px-7 cursor-pointer rounded">
+                        <input type="submit" value="Update" class="absolute bottom-2 left-1/2 text-white bg-gray-700 py-3 px-7 cursor-pointer rounded">
                     </div>
                 </form>
             </div>

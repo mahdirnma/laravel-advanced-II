@@ -95,7 +95,7 @@ class PostController extends Controller
 
     public function createTag(Post $post,Request $request)
     {
-        $tag=$request->tag_id;
+        $tag=$request->tags;
         $post->tags()->attach($tag);
         return to_route('posts.show',$post);
     }

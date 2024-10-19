@@ -46,6 +46,6 @@
                     </tbody>
                 </table>
             </div>
-{{--            <div class="mt-5">{{$tags->links()}}</div>--}}
+            <div class="mt-5">{{$images->links()}}</div>
         </div>
 @endsection
