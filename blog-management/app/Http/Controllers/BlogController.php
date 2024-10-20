@@ -92,6 +92,9 @@ class BlogController extends Controller
      */
     public function destroy(Blog $blog)
     {
-        //
+        $blog->update([
+            'is_active'=>0
+        ]);
+        return to_route('blogs.index');
     }
 }
