@@ -13,7 +13,8 @@ class BlogController extends Controller
      */
     public function index()
     {
-        //
+        $blogs = Blog::where('is_active', 1)->paginate(2);
+        return view('admin.blogs.index', compact('blogs'));
     }
 
     /**

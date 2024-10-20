@@ -27,4 +27,4 @@ Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 Route::resource('tags', TagController::class)->except(['show'])->middleware('auth');
 Route::resource('categories', CategoryController::class)->except(['show'])->middleware('auth');
 Route::resource('pics', PicController::class)->except(['show'])->middleware('auth');
-Route::resource('blogs', BlogController::class)->except(['show'])->middleware('auth');
+Route::resource('blogs', BlogController::class)->middleware('auth');
