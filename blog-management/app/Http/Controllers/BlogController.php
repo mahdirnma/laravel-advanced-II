@@ -61,7 +61,8 @@ class BlogController extends Controller
      */
     public function edit(Blog $blog)
     {
-        //
+        $categories = Category::where('is_active', 1)->get();
+        return view('admin.blogs.edit', compact('blog', 'categories'));
     }
 
     /**
