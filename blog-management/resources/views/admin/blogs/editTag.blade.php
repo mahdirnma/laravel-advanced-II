@@ -13,13 +13,13 @@
                     @csrf
                     @method('put')
                     <div class="w-1/2 h-full flex flex-col items-end pr-20 relative">
-                        <div class="w-5/6 h-auto flex flex-row-reverse justify-between pt-4 mb-6">
+                        <div class="w-5/6 h-auto flex flex-row-reverse pt-4 mb-6">
                         @foreach($tags as $tag)
                                 <label for="{{$tag->title}}" class="font-semibold ml-5 cursor-pointer">{{$tag->title}}</label>
                                 <input type="checkbox" name="tags[]" id="{{$tag->title}}" value="{{$tag->id}}"
                                 @foreach($blog->tags as $data)
                                     {{$tag->id==$data->pivot->tag_id?'checked':''}}
-                                    @endforeach>
+                                    @endforeach class=" ml-32">
                             @endforeach
                         </div>
                         <input type="submit" value="Update" class="absolute bottom-2 -left-10 text-white bg-gray-700 py-3 px-7 cursor-pointer rounded">
