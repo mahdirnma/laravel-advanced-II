@@ -30,4 +30,6 @@ Route::resource('pics', PicController::class)->except(['show'])->middleware('aut
 Route::resource('blogs', BlogController::class)->except(['show'])->middleware('auth');
 Route::get('/blogs/editTag/{blog}', [BlogController::class, 'editTag'])->name('editTag');
 Route::put('/blogs/updateTag/{blog}', [BlogController::class, 'updateTag'])->name('updateTag');
+Route::get('/blogs/editImage/{blog}', [BlogController::class, 'editImage'])->name('editImage');
+Route::put('/blogs/updateImage/{blog}', [BlogController::class, 'updateImage'])->name('updateImage');
 

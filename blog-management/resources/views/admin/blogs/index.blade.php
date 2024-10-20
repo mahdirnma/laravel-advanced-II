@@ -46,7 +46,7 @@
                                 </form>
                             </td>
                             <td class="text-center">
-                                <form action="{{--{{route('showImage',compact('blog'))}}--}}" method="get">
+                                <form action="{{route('editImage',compact('blog'))}}" method="get">
                                     @csrf
                                     <button type="submit" class="text-red-700">other pics</button>
                                 </form>

@@ -7,6 +7,7 @@ use App\Models\Blog;
 use App\Http\Requests\StoreBlogRequest;
 use App\Http\Requests\UpdateBlogRequest;
 use App\Models\Category;
+use App\Models\Pic;
 use App\Models\Tag;
 use Illuminate\Http\Request;
 
@@ -99,5 +100,15 @@ class BlogController extends Controller
         $tags=$request->tags;
         $blog->tags()->sync($tags);
         return to_route('editTag', $blog);
+    }
+
+    public function editImage(Blog $blog)
+    {
+        $pics=Pic::where('is_active', 1)->get();
+        return view('admin.blogs.editImage', compact('blog', 'pics'));
+    }
+    public function updateImage()
+    {
+
     }
 }
