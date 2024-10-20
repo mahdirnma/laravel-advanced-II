@@ -40,9 +40,9 @@
                                 </form>
                             </td>
                             <td class="text-center">
-                                <form action="{{route('blogs.show',compact('blog'))}}" method="get">
+                                <form action="{{route('editTag',compact('blog'))}}" method="get">
                                     @csrf
-                                    <button type="submit" class="text-fuchsia-600">tags</button>
+                                    <button type="submit" class="text-emerald-400">tags</button>
                                 </form>
                             </td>
                             <td class="text-center">

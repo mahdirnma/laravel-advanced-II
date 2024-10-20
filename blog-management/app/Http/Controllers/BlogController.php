@@ -6,6 +6,7 @@ use App\Models\Blog;
 use App\Http\Requests\StoreBlogRequest;
 use App\Http\Requests\UpdateBlogRequest;
 use App\Models\Category;
+use App\Models\Tag;
 
 class BlogController extends Controller
 {
@@ -48,17 +49,6 @@ class BlogController extends Controller
         }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Blog $blog)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(Blog $blog)
     {
         $categories = Category::where('is_active', 1)->get();
@@ -96,5 +86,10 @@ class BlogController extends Controller
             'is_active'=>0
         ]);
         return to_route('blogs.index');
+    }
+    public function editTag(Blog $blog)
+    {
+        $tags=Tag::where('is_active', 1)->get();
+        return view('admin.blogs.editTag', compact('blog', 'tags'));
     }
 }
