@@ -56,7 +56,22 @@ class PicController extends Controller
      */
     public function update(UpdatePicRequest $request, Pic $pic)
     {
-        //
+        $name='';
+        if ($image = $request->file('url')) {
+            $name = time() . $image->getClientOriginalName();
+            $image->move(public_path().'/upload/', $name);
+        }
+        $status=$pic->update([
+            ...$request->validated(),
+            'url' => $name,
+        ]);
+        if ($status) {
+            return to_route('pics.index');
+
+        }else{
+            return to_route('pics.edit', $pic);
+        }
+
     }
 
     /**
