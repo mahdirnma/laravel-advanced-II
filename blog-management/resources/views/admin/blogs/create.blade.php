@@ -1,6 +1,6 @@
 @extends('layout.app')
 @section('title')
-    add post
+    add blog
 @endsection
 @section('content')
     <div class="w-full h-[88%] bg-gray-200 flex items-center justify-center">
@@ -9,7 +9,7 @@
                 <h2 class="text-xl">add post</h2>
             </div>
             <div class="flex w-full h-4/5">
-                <form action="{{route('posts.store')}}" method="post" enctype="multipart/form-data" class="w-full h-full flex flex-row-reverse">
+                <form action="{{route('blogs.store')}}" method="post" enctype="multipart/form-data" class="w-full h-full flex flex-row-reverse">
                     @csrf
                     <div class="w-1/2 h-full flex flex-col items-end pr-20 relative">
                         <div class="w-5/6 h-auto flex flex-row-reverse justify-between pt-4 mb-6">

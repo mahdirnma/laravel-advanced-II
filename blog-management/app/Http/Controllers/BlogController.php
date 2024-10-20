@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Http\Requests\StoreBlogRequest;
 use App\Http\Requests\UpdateBlogRequest;
+use App\Models\Category;
 
 class BlogController extends Controller
 {
@@ -22,7 +23,8 @@ class BlogController extends Controller
      */
     public function create()
     {
-        //
+        $categories = Category::where('is_active', 1)->get();
+        return view('admin.blogs.create', compact('categories'));
     }
 
     /**
