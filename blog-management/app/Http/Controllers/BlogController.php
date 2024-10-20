@@ -32,7 +32,20 @@ class BlogController extends Controller
      */
     public function store(StoreBlogRequest $request)
     {
-        //
+        $name='';
+        if ($pic=$request->file('main_pic')) {
+            $name=time().'-'.$request->file('main_pic')->getClientOriginalName();
+            $pic->move(public_path().'/upload/', $name);
+        }
+        $blog=Blog::create([
+            ...$request->validated(),
+            'main_pic'=>$name
+        ]);
+        if ($blog){
+            return to_route('blogs.index');
+        }else{
+            return to_route('blogs.create');
+        }
     }
 
     /**
