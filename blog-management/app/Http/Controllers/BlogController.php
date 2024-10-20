@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UpdateTagRequest;
 use App\Models\Blog;
 use App\Http\Requests\StoreBlogRequest;
 use App\Http\Requests\UpdateBlogRequest;
 use App\Models\Category;
 use App\Models\Tag;
+use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
@@ -87,9 +89,15 @@ class BlogController extends Controller
         ]);
         return to_route('blogs.index');
     }
+
     public function editTag(Blog $blog)
     {
         $tags=Tag::where('is_active', 1)->get();
         return view('admin.blogs.editTag', compact('blog', 'tags'));
+    }
+    public function updateTag(Request $request, Blog $blog){
+        $tags=$request->tags;
+        $blog->tags()->sync($tags);
+        return to_route('editTag', $blog);
     }
 }
