@@ -70,7 +70,21 @@ class BlogController extends Controller
      */
     public function update(UpdateBlogRequest $request, Blog $blog)
     {
-        //
+        $name='';
+        if ($pic=$request->file('main_pic')) {
+            $name=time().'-'.$request->file('main_pic')->getClientOriginalName();
+            $pic->move(public_path().'/upload/', $name);
+        }
+        $status=$blog->update([
+            ...$request->validated(),
+            'main_pic'=>$name
+        ]);
+        if ($status){
+            return to_route('blogs.index');
+
+        }else{
+            return to_route('blogs.edit', $blog);
+        }
     }
 
     /**
