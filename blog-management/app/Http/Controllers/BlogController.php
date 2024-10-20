@@ -107,8 +107,10 @@ class BlogController extends Controller
         $pics=Pic::where('is_active', 1)->get();
         return view('admin.blogs.editImage', compact('blog', 'pics'));
     }
-    public function updateImage()
+    public function updateImage(Request $request,Blog $blog)
     {
-
+        $images=$request->images;
+        $blog->pics()->sync($images);
+        return to_route('editImage', $blog);
     }
 }

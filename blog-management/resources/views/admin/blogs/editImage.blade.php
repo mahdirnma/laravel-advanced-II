@@ -13,13 +13,13 @@
                     @csrf
                     @method('put')
                     <div class="w-full h-full flex flex-col items-end pr-20 relative">
-                        <div class="w-5/6 h-auto flex flex-row-reverse justify-between pt-4 mb-6">
+                        <div class="w-5/6 h-auto flex flex-row-reverse pt-4 mb-6">
                             @foreach($pics as $pic)
                                 <label for="{{$pic->title}}" class="font-semibold ml-5 cursor-pointer"><img src="/upload/{{$pic->url}}" alt="{{$pic->alt}}" class="w-36"></label>
                                 <input type="checkbox" name="images[]" id="{{$pic->title}}" value="{{$pic->id}}"
                                 @foreach($blog->pics as $data)
                                     {{$data->pivot->pic_id==$pic->id?'checked':''}}
-                                    @endforeach>
+                                    @endforeach class="ml-32">
                             @endforeach
                         </div>
                         <input type="submit" value="Update" class="absolute bottom-2 left-1/2 text-white bg-gray-700 py-3 px-7 cursor-pointer rounded">
