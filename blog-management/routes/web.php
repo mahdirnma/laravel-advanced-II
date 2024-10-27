@@ -33,3 +33,7 @@ Route::put('/blogs/updateTag/{blog}', [BlogController::class, 'updateTag'])->nam
 Route::get('/blogs/editImage/{blog}', [BlogController::class, 'editImage'])->name('editImage');
 Route::put('/blogs/updateImage/{blog}', [BlogController::class, 'updateImage'])->name('updateImage');
 
+Route::get('/user', [UserController::class, 'userIndex'])->name('user.index');
+Route::get('/user/blog/{blog}', [UserController::class, 'userBlog'])->name('user.blog');
+
+
