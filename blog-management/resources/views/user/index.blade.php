@@ -37,7 +37,7 @@
         <tr class="border-2 border-blue-800">
             <td>{{$tag->title}}</td>
             <td>
-                <form action="{{--{{route('blog.single',compact('blog'))}}--}}" method="get">
+                <form action="{{route('tag.blog',compact('tag'))}}" method="get">
                     @csrf
                     <button type="submit" class="text-red-600">show blogs</button>
                 </form>
@@ -54,7 +54,7 @@
         <tr class="border-2 border-red-800">
             <td>{{$category->title}}</td>
             <td>
-                <form action="{{--{{route('blog.single',compact('blog'))}}--}}" method="get">
+                <form action="{{route('category.blog',compact('category'))}}" method="get">
                     @csrf
                     <button type="submit" class="text-red-600">show categories</button>
                 </form>

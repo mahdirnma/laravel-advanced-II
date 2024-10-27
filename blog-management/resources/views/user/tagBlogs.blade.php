@@ -6,20 +6,21 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-@vite('resources/css/app.css')
+    @vite('resources/css/app.css')
 </head>
 <body>
+<h1>{{$tag->title}} blogs</h1>
 <table>
     <tr class="border-2 border-black">
         <td class="font-bold border-2 border-black">blog title</td>
         <td class="font-bold border-2 border-black">description</td>
-        <td class="font-bold border-2 border-black">pic</td>
     </tr>
-    <tr class="border-2 border-black">
-        <td>{{$blog->title}}</td>
-        <td>{{$blog->description}}</td>
-        <td><img src="/upload/{{$blog->main_pic}}" alt="" class="w-36"></td>
-    </tr>
+    @foreach($tag->blogs as $blog)
+        <tr class="border-2 border-black">
+            <td>{{$blog->title}}</td>
+            <td>{{$blog->description}}</td>
+        </tr>
+    @endforeach
 </table>
 </body>
 </html>

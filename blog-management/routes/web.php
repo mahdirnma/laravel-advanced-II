@@ -35,5 +35,7 @@ Route::put('/blogs/updateImage/{blog}', [BlogController::class, 'updateImage'])-
 
 Route::get('/user', [UserController::class, 'userIndex'])->name('user.index');
 Route::get('/user/blog/{blog}', [UserController::class, 'blogSingle'])->name('blog.single');
+Route::get('/user/tag/{tag}', [UserController::class, 'tagBlogs'])->name('tag.blog');
+Route::get('/user/category/{category}', [UserController::class, 'categoryBlogs'])->name('category.blog');
 
 
