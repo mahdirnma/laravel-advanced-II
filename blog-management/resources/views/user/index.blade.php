@@ -28,6 +28,40 @@
         </tr>
     @endforeach
 </table>
+<table class="mt-10">
+    <tr class="border-2 border-black">
+        <td class="font-bold border-2 border-blue-800">tags title</td>
+        <td class="font-bold border-2 border-blue-800">show tag's blogs</td>
+    </tr>
+    @foreach($tags as $tag)
+        <tr class="border-2 border-blue-800">
+            <td>{{$tag->title}}</td>
+            <td>
+                <form action="{{--{{route('blog.single',compact('blog'))}}--}}" method="get">
+                    @csrf
+                    <button type="submit" class="text-red-600">show blogs</button>
+                </form>
+            </td>
+        </tr>
+    @endforeach
+</table>
+<table class="mt-10">
+    <tr class="border-2 border-black">
+        <td class="font-bold border-2 border-red-800">category title</td>
+        <td class="font-bold border-2 border-red-800">show category's blogs</td>
+    </tr>
+    @foreach($categories as $category)
+        <tr class="border-2 border-red-800">
+            <td>{{$category->title}}</td>
+            <td>
+                <form action="{{--{{route('blog.single',compact('blog'))}}--}}" method="get">
+                    @csrf
+                    <button type="submit" class="text-red-600">show categories</button>
+                </form>
+            </td>
+        </tr>
+    @endforeach
+</table>
 </body>
 </html>
 {{--
