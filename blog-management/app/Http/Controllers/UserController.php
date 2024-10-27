@@ -34,4 +34,8 @@ class UserController extends Controller
     {
         return view('user.tagBlogs', compact('tag'));
     }
+    public function categoryBlogs(Category $category)
+    {
+        return view('user.categoryBlogs', compact('category'));
+    }
 }
