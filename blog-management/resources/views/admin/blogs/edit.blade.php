@@ -48,6 +48,13 @@
                                 <p class="text-red-700">{{$message}}</p>
                             @enderror
                         </div>
+                        <div class="w-5/6 h-auto flex flex-row-reverse justify-between pt-4 mb-6">
+                            <label for="body" class="font-semibold ml-5">: body</label>
+                            <textarea name="body" id="body" cols="3" rows="3" class="w-2/5 h-32 rounded outline-0 pb-2 pt-1 px-2 border border-gray-400">{{$blog->body}}</textarea>
+                            @error('body')
+                            <p class="text-red-700">{{$message}}</p>
+                            @enderror
+                        </div>
                     </div>
                 </form>
             </div>

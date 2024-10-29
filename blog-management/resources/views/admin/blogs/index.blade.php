@@ -51,7 +51,7 @@
                                     <button type="submit" class="text-red-700">other pics</button>
                                 </form>
                             </td>
-                            <td class="text-center"><img src="upload/{{$blog->main_pic}}" alt="pic" class="inline-block w-36"></td>
+                            <td class="text-center"><img src="/upload/{{$blog->main_pic}}" alt="pic" class="inline-block w-36"></td>
                             <td class="text-center">{{$blog->category->title}}</td>
                             <td class="text-center">{{$blog->description}}</td>
                             <td class="text-center">{{$blog->title}}</td>

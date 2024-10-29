@@ -34,7 +34,7 @@
     </div>
 </div>
 <div class="w-svw max-h-svh py-20 flex justify-center">
-    <div class="w-10/12 h-full flex items-center justify-between">
+    <div class="w-10/12 h-full flex items-center justify-between pb-14">
         <div class="w-[33%] h-auto">
             <form action="" method="get" class="flex h-14 w-full">
                 @csrf
@@ -42,16 +42,26 @@
                 <input type="search" name="search" id="search" placeholder="search..." class="w-full h-full pl-6 pb-1 bg bg-[#f8f7f3] placeholder-[#00000082] outline-0 rounded-s select-none">
                 <div class="w-10 h-full p-2 flex items-center justify-center bg-[#f8f7f3] rounded-e"><img src="images/icons8-search-gray.svg" alt="" class="w-5 select-none"></div>
             </form>
-            <div class="w-full h-auto px-6 py-6 bg-[#f8f7f3] mt-5 rounded">
+            <div class="w-full max-h-96 px-6 py-6 bg-[#f8f7f3] my-8 rounded box-border">
                 <p class="font-bold text-xl">Categories</p>
-                <ul class="mt-3">
+                <ul class="mt-3 max-h-72 overflow-auto">
                     @foreach($categories as $category)
                         <li class="h-12 font-semibold border-b flex items-center border-[#00000032]"><a href="">{{$category->title}}</a></li>
                     @endforeach
                 </ul>
             </div>
+            <div class="w-full max-h-96 px-6 py-6 bg-[#f8f7f3] rounded box-border">
+                <p class="font-bold text-xl">Tags</p>
+                <ul class="mt-3 max-h-72 overflow-auto">
+                    @foreach($tags as $tag)
+                        <li class="h-12 font-semibold border-b flex items-center border-[#00000032]"><a href="">{{$tag->title}}</a></li>
+                    @endforeach
+                </ul>
+            </div>
         </div>
-        <div class="w-[65%] h-auto bg-amber-400"></div>
+        <div class="w-[65%] h-auto bg-amber-400 flex-wrap">
+
+        </div>
     </div>
 </div>
 </body>
