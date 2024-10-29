@@ -19,23 +19,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [UserController::class, 'index'])->name('home')->middleware('auth');
 Route::get('login', [UserController::class, 'login'])->name('login.show');
 Route::post('login', [AuthController::class, 'login'])->name('login');
 Route::post('logout', [AuthController::class, 'logout'])->name('logout');
-
-Route::resource('tags', TagController::class)->except(['show'])->middleware('auth');
-Route::resource('categories', CategoryController::class)->except(['show'])->middleware('auth');
-Route::resource('pics', PicController::class)->except(['show'])->middleware('auth');
-Route::resource('blogs', BlogController::class)->except(['show'])->middleware('auth');
-Route::get('/blogs/editTag/{blog}', [BlogController::class, 'editTag'])->name('editTag');
-Route::put('/blogs/updateTag/{blog}', [BlogController::class, 'updateTag'])->name('updateTag');
-Route::get('/blogs/editImage/{blog}', [BlogController::class, 'editImage'])->name('editImage');
-Route::put('/blogs/updateImage/{blog}', [BlogController::class, 'updateImage'])->name('updateImage');
-
-Route::get('/user', [UserController::class, 'userIndex'])->name('user.index');
-Route::get('/user/blog/{blog}', [UserController::class, 'blogSingle'])->name('blog.single');
-Route::get('/user/tag/{tag}', [UserController::class, 'tagBlogs'])->name('tag.blog');
-Route::get('/user/category/{category}', [UserController::class, 'categoryBlogs'])->name('category.blog');
-
-
+Route::prefix('/admin')->middleware('auth')->group(function () {
+    Route::get('/', [UserController::class, 'index'])->name('home');
+    Route::resource('tags', TagController::class)->except(['show']);
+    Route::resource('categories', CategoryController::class)->except(['show']);
+    Route::resource('pics', PicController::class)->except(['show']);
+    Route::resource('blogs', BlogController::class)->except(['show']);
+    Route::get('/blogs/editTag/{blog}', [BlogController::class, 'editTag'])->name('editTag');
+    Route::put('/blogs/updateTag/{blog}', [BlogController::class, 'updateTag'])->name('updateTag');
+    Route::get('/blogs/editImage/{blog}', [BlogController::class, 'editImage'])->name('editImage');
+    Route::put('/blogs/updateImage/{blog}', [BlogController::class, 'updateImage'])->name('updateImage');
+});
+Route::get('/', [UserController::class, 'userIndex'])->name('user.index');
+Route::get('/blog/{blog}', [UserController::class, 'blogSingle'])->name('blog.single');
+Route::get('/tag/{tag}', [UserController::class, 'tagBlogs'])->name('tag.blog');
+Route::get('/category/{category}', [UserController::class, 'categoryBlogs'])->name('category.blog');
