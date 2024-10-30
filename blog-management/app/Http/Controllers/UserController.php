@@ -22,7 +22,7 @@ class UserController extends Controller
     {
         $categories = Category::where('is_active', 1)->get();
         $tags = Tag::where('is_active', 1)->get();
-        $blogs = Blog::where('is_active', 1)->get();
+        $blogs = Blog::where('is_active', 1)->paginate(6);
         return view('user.index', compact('categories', 'tags', 'blogs'));
     }
     public function blogSingle(Blog $blog)

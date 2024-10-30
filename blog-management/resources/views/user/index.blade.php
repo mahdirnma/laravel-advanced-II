@@ -34,7 +34,7 @@
     </div>
 </div>
 <div class="w-svw max-h-svh py-20 flex justify-center">
-    <div class="w-10/12 h-full flex items-center justify-between pb-14">
+    <div class="w-10/12 h-full flex justify-between pb-14">
         <div class="w-[33%] h-auto">
             <form action="" method="get" class="flex h-14 w-full">
                 @csrf
@@ -59,8 +59,20 @@
                 </ul>
             </div>
         </div>
-        <div class="w-[65%] h-auto bg-amber-400 flex-wrap">
-
+        <div class="w-[65%] h-[227svh] bg-amber-400">
+            <div class="w-full h-[97%] bg-blue-500 items-start justify-between flex flex-wrap">
+                @foreach($blogs as $blog)
+                    <div class="w-[48%] h-[29%] bg-amber-200">
+                        <div class="w-full h-3/5"><img src="upload/{{$blog->main_pic}}" alt="{{$blog->title}}" class="w-full h-full"></div>
+                        <div class="w-full h-2/5 flex flex-col gap-y-2 pt-5">
+                            <p class="text-[#cacaca]">{{$blog->category->title}}</p>
+                            <p class="text-[#252527] font-[640] text-left text-[18px]">{{$blog->title}}</p>
+                            <p class="text-[#9e9e9e] font-[200] text-left text-[17px]">{{$blog->description}}</p>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+            {{$blogs->links()}}
         </div>
     </div>
 </div>
