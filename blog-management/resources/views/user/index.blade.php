@@ -61,9 +61,9 @@
             </div>
         </div>
         <div class="w-[65%] h-[227svh]">
-            <div class="w-full h-[97%] items-start justify-between flex flex-wrap">
+            <div class="w-full items-start justify-between flex flex-wrap mb-10">
                 @foreach($blogs as $blog)
-                    <a href="{{route('blog.single',$blog->id)}}" class="w-[48%] h-[29%] hover:shadow-2xl rounded hover:shadow-[#E6E3D6] transition-all p-2">
+                    <a href="{{route('blog.single',$blog->id)}}" class="w-[48%] h-[450px] hover:shadow-2xl rounded hover:shadow-[#E6E3D6] transition-all p-2 mb-5">
                         <div class="w-full h-3/5"><img src="upload/{{$blog->main_pic}}" alt="{{$blog->title}}" class="w-full h-full"></div>
                         <div class="w-full h-2/5 flex flex-col gap-y-2 pt-5">
                             <p class="text-[#cacaca]">{{$blog->category->title}}</p>
