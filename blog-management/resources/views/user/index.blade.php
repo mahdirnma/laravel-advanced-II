@@ -34,8 +34,8 @@
         <h2 class="font-bold text-xl">Blog</h2>
     </div>
 </div>
-<div class="w-full py-20 flex justify-center">
-    <div class="w-10/12 flex justify-between pb-14">
+<div class="w-full py-8 flex justify-center">
+    <div class="w-10/12 flex justify-between">
         <div class="w-[30%] h-auto">
             <form action="" method="get" class="flex h-14 w-full">
                 @csrf
@@ -77,6 +77,9 @@
         </div>
     </div>
 </div>
+<footer class="w-full h-20 flex justify-center bg-[#f8f7f3]">
+
+</footer>
 </body>
 </html>
 {{--<body>
