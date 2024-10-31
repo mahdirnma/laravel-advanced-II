@@ -7,9 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>MunMahdi</title>
     @vite('resources/css/app.css')
+    @vite('resources/css/main.css')
 </head>
 <body>
-<header class="w-svw h-20 flex justify-center">
+<header class="w-full h-20 flex justify-center">
     <div class="w-10/12 h-full flex">
         <div class="w-1/5 h-full flex items-center">
             <h1 class="font-bold text-2xl">MunMahdi</h1>
@@ -28,14 +29,14 @@
         </div>
     </div>
 </header>
-<div class="w-svw h-20 flex justify-center bg-[#f8f7f3]">
+<div class="w-full h-20 flex justify-center bg-[#f8f7f3]">
     <div class="w-10/12 h-full flex items-center">
         <h2 class="font-bold text-xl">Blog</h2>
     </div>
 </div>
-<div class="w-svw max-h-svh py-20 flex justify-center">
+<div class="w-full max-h-svh py-20 flex justify-center">
     <div class="w-10/12 h-full flex justify-between pb-14">
-        <div class="w-[33%] h-auto">
+        <div class="w-[30%] h-auto">
             <form action="" method="get" class="flex h-14 w-full">
                 @csrf
                 <label for="search"></label>
@@ -59,17 +60,17 @@
                 </ul>
             </div>
         </div>
-        <div class="w-[65%] h-[227svh] bg-amber-400">
-            <div class="w-full h-[97%] bg-blue-500 items-start justify-between flex flex-wrap">
+        <div class="w-[65%] h-[227svh]">
+            <div class="w-full h-[97%] items-start justify-between flex flex-wrap">
                 @foreach($blogs as $blog)
-                    <div class="w-[48%] h-[29%] bg-amber-200">
+                    <a href="{{route('blog.single',$blog->id)}}" class="w-[48%] h-[29%] hover:shadow-2xl rounded hover:shadow-[#E6E3D6] transition-all p-2">
                         <div class="w-full h-3/5"><img src="upload/{{$blog->main_pic}}" alt="{{$blog->title}}" class="w-full h-full"></div>
                         <div class="w-full h-2/5 flex flex-col gap-y-2 pt-5">
                             <p class="text-[#cacaca]">{{$blog->category->title}}</p>
                             <p class="text-[#252527] font-[640] text-left text-[18px]">{{$blog->title}}</p>
                             <p class="text-[#9e9e9e] font-[200] text-left text-[17px]">{{$blog->description}}</p>
                         </div>
-                    </div>
+                    </a>
                 @endforeach
             </div>
             {{$blogs->links()}}
