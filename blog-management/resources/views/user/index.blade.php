@@ -77,8 +77,24 @@
         </div>
     </div>
 </div>
-<footer class="w-full h-20 flex justify-center bg-[#f8f7f3]">
-
+<footer class="w-full h-64 flex justify-center items-center bg-[#f8f7f3]">
+    <div class="w-10/12 h-4/6 flex">
+        <div class="w-[27%] flex flex-col">
+            <p class="font-bold text-2xl">MunMahdi</p>
+        </div>
+        <div class="w-[27%] flex flex-col">
+            <p class="font-bold text-xl">About us</p>
+            <div class="pt-6">
+                <p class="text-[#676767]">Mohammad mahdi Rahnama</p>
+            </div>
+        </div>
+        <div class="w-[27%] flex flex-col">
+            <p class="font-bold text-xl">Product</p>
+        </div>
+        <div class="w-[19%] flex flex-col">
+            <p class="font-bold text-xl">Contact us</p>
+        </div>
+    </div>
 </footer>
 </body>
 </html>
