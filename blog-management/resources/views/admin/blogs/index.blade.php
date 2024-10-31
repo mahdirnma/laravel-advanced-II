@@ -19,6 +19,7 @@
                         <td class="text-center">other pics</td>
                         <td class="text-center">main pic</td>
                         <td class="text-center">category</td>
+                        <td class="text-center">body</td>
                         <td class="text-center">description</td>
                         <td class="text-center">title</td>
                     </tr>
@@ -53,7 +54,8 @@
                             </td>
                             <td class="text-center"><img src="/upload/{{$blog->main_pic}}" alt="pic" class="inline-block w-36"></td>
                             <td class="text-center">{{$blog->category->title}}</td>
-                            <td class="text-center">{{$blog->description}}</td>
+                            <td class="max-w-52 text-justify overflow-auto">{{$blog->body}}</td>
+                            <td class="text-center max-w-52">{{$blog->description}}</td>
                             <td class="text-center">{{$blog->title}}</td>
                         </tr>
                     @endforeach
