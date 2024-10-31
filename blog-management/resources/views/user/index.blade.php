@@ -34,8 +34,8 @@
         <h2 class="font-bold text-xl">Blog</h2>
     </div>
 </div>
-<div class="w-full max-h-svh py-20 flex justify-center">
-    <div class="w-10/12 h-full flex justify-between pb-14">
+<div class="w-full py-20 flex justify-center">
+    <div class="w-10/12 flex justify-between pb-14">
         <div class="w-[30%] h-auto">
             <form action="" method="get" class="flex h-14 w-full">
                 @csrf
@@ -47,7 +47,7 @@
                 <p class="font-bold text-xl">Categories</p>
                 <ul class="mt-3 max-h-72 overflow-auto">
                     @foreach($categories as $category)
-                        <li class="h-12 font-semibold border-b flex items-center border-[#00000032]"><a href="">{{$category->title}}</a></li>
+                        <li class="h-12 font-semibold border-b flex items-center border-[#00000032]"><a href="{{route('category.blog',$category->id)}}">{{$category->title}}</a></li>
                     @endforeach
                 </ul>
             </div>
@@ -55,12 +55,12 @@
                 <p class="font-bold text-xl">Tags</p>
                 <ul class="mt-3 max-h-72 overflow-auto">
                     @foreach($tags as $tag)
-                        <li class="h-12 font-semibold border-b flex items-center border-[#00000032]"><a href="">{{$tag->title}}</a></li>
+                        <li class="h-12 font-semibold border-b flex items-center border-[#00000032]"><a href="{{route('tag.blog',$tag->id)}}">{{$tag->title}}</a></li>
                     @endforeach
                 </ul>
             </div>
         </div>
-        <div class="w-[65%] h-[227svh]">
+        <div class="w-[65%] h-auto">
             <div class="w-full items-start justify-between flex flex-wrap mb-10">
                 @foreach($blogs as $blog)
                     <a href="{{route('blog.single',$blog->id)}}" class="w-[48%] h-[450px] hover:shadow-2xl rounded hover:shadow-[#E6E3D6] transition-all p-2 mb-5">
