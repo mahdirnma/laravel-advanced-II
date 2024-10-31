@@ -27,7 +27,9 @@ class UserController extends Controller
     }
     public function blogSingle(Blog $blog)
     {
-        return view('user.blogs', compact('blog'));
+        $categories = Category::where('is_active', 1)->get();
+        $tags = Tag::where('is_active', 1)->get();
+        return view('user.blogs', compact('blog','categories', 'tags'));
     }
 
     public function tagBlogs(Tag $tag)

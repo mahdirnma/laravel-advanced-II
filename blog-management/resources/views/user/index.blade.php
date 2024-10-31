@@ -36,7 +36,7 @@
 </div>
 <div class="w-full py-8 flex justify-center">
     <div class="w-10/12 flex justify-between">
-        <div class="w-[30%] h-auto">
+        <div class="w-[32%] h-auto">
             <form action="" method="get" class="flex h-14 w-full">
                 @csrf
                 <label for="search"></label>
@@ -60,10 +60,10 @@
                 </ul>
             </div>
         </div>
-        <div class="w-[65%] h-auto">
+        <div class="w-[66%] h-auto">
             <div class="w-full items-start justify-between flex flex-wrap mb-10">
                 @foreach($blogs as $blog)
-                    <a href="{{route('blog.single',$blog->id)}}" class="w-[48%] h-[450px] hover:shadow-2xl rounded hover:shadow-[#E6E3D6] transition-all p-2 mb-5">
+                    <a href="{{route('blog.single',$blog->id)}}" class="w-[49%] h-[450px] hover:shadow-2xl rounded hover:shadow-[#E6E3D6] transition-all p-2 mb-5">
                         <div class="w-full h-3/5"><img src="upload/{{$blog->main_pic}}" alt="{{$blog->title}}" class="w-full h-full"></div>
                         <div class="w-full h-2/5 flex flex-col gap-y-2 pt-5">
                             <p class="text-[#cacaca]">{{$blog->category->title}}</p>
