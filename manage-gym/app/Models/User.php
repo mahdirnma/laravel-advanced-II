@@ -21,6 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'role',
+        'is_active',
     ];
 
     /**
@@ -42,4 +44,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    public function subcription()
+    {
+        return $this->hasOne(Subcription::class);
+    }
+
+    public function log()
+    {
+        return $this->hasMany(Log::class);
+    }
+
 }
