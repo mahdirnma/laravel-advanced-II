@@ -12,7 +12,11 @@ class AuthController extends Controller
     {
         $myData=$request->only('email','password');
         if(Auth::attempt($myData)){
+            if (Auth::user()->role==1){
             return to_route('index');
+            }elseif (Auth::user()->role==2){
+                return 2;
+            }
         }else{
             return redirect()->back();
         }
