@@ -19,7 +19,7 @@ class CheckRole
         if (Auth::check()) {
             $user = Auth::user();
         }else{
-            return to_route('login');
+            return to_route('login.show');
         }
         if ($user->role==1){
             return to_route('home');
