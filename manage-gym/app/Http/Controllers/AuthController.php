@@ -26,7 +26,12 @@ class AuthController extends Controller
         $confirmPassword=$request->confirmPassword;
         if($password==$confirmPassword){
             $user=User::create($request->validated());
-            return 2;
+        }else{
+            return redirect()->back();
+        }
+        if ($user){
+            Auth::login($user);
+            return to_route('home');
         }else{
             return redirect()->back();
         }
