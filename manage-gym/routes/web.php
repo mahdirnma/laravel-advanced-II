@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\LogController;
+use App\Http\Controllers\SubcriptionController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,7 +23,8 @@ Route::get('/register',[UserController::class,'register'])->name('register.show'
 Route::post('/register',[AuthController::class,'register'])->name('register');
 Route::post('/logout',[AuthController::class,'logout'])->name('logout');
 
-Route::resource('subcriptions', 'SubcriptionController');
+Route::resource('subcriptions', SubcriptionController::class)->middleware(['auth','checkRole']);
+Route::resource('logs', LogController::class)->middleware(['auth','checkRole']);
 
 Route::get('/',[UserController::class,'home'])->name('home')->middleware('auth');
 
