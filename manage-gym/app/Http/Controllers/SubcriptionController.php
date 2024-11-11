@@ -13,7 +13,8 @@ class SubcriptionController extends Controller
      */
     public function index()
     {
-        //
+        $subscriptions = Subcription::where('is_active', 1)->paginate(2);
+        return view('admin.subscriptions.index', compact('subscriptions'));
     }
 
     /**
