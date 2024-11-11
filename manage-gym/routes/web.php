@@ -25,6 +25,7 @@ Route::post('/logout',[AuthController::class,'logout'])->name('logout');
 
 Route::resource('subcriptions', SubcriptionController::class)->middleware(['auth','checkRole']);
 Route::resource('logs', LogController::class)->middleware(['auth','checkRole']);
+Route::get('/admin/users',[UserController::class,'userIndex'])->name('user.index')->middleware(['auth','checkRole']);
 
-Route::get('/',[UserController::class,'home'])->name('home')->middleware('auth');
+Route::get('/',[UserController::class,'home'])->name('home')->middleware(['auth','checkRole']);
 
