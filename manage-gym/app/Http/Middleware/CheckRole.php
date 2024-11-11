@@ -23,9 +23,9 @@ class CheckRole
         }
         if ($user->role==1){
             return to_route('home');
-        }else{
+        }/*elseif ($user->role==2){
             return to_route('index');
-        }
-//        return $next($request);
+        }*/
+        return $next($request);
     }
 }
