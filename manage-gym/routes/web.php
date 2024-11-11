@@ -22,10 +22,11 @@ Route::post('/login',[AuthController::class,'login'])->name('login');
 Route::get('/register',[UserController::class,'register'])->name('register.show');
 Route::post('/register',[AuthController::class,'register'])->name('register');
 Route::post('/logout',[AuthController::class,'logout'])->name('logout');
+Route::prefix('/admin')->middleware(['auth','checkRole'])->group(function(){
+    Route::resource('subcriptions', SubcriptionController::class);
+    Route::resource('logs', LogController::class);
+    Route::get('/users',[UserController::class,'usersIndex'])->name('users.index');
+});
 
-Route::resource('subcriptions', SubcriptionController::class)->middleware(['auth','checkRole']);
-Route::resource('logs', LogController::class)->middleware(['auth','checkRole']);
-Route::get('/admin/users',[UserController::class,'userIndex'])->name('user.index')->middleware(['auth','checkRole']);
-
-Route::get('/',[UserController::class,'home'])->name('home')->middleware(['auth','checkRole']);
+Route::get('/',[UserController::class,'home'])->name('home')->middleware(['auth']);
 
