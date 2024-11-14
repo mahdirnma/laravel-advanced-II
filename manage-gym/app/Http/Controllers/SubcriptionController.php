@@ -62,6 +62,7 @@ class SubcriptionController extends Controller
      */
     public function destroy(Subcription $subcription)
     {
-        //
+        $subcription->update(['is_active' => 0]);
+        return to_route('subcriptions.index');
     }
 }
