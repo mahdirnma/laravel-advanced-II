@@ -7,6 +7,15 @@
         <div class="w-[90%] h-5/6 bg-white rounded-xl pt-3 flex flex-col items-center">
             <div class="w-[90%] h-1/5 flex justify-between items-center border-b">
                 <h2 class="text-xl">users</h2>
+                <form action="{{route('users.index')}}" method="get">
+                    <button type="submit" class="mr-5 bg-gray-600 text-white p-3 rounded">search</button>
+
+                    <label for="subscription">subscription : </label>
+                    <select name="subscription" id="subscription" class="w-32 py-1 text-center rounded border border-gray-500 cursor-pointer">
+                        <option value="yes">yes</option>
+                        <option value="no">no</option>
+                    </select>
+                </form>
             </div>
             <div class="w-[90%] h-3/5 flex flex-col justify-center">
                 <table class="w-full min-h-full border border-gray-400">
