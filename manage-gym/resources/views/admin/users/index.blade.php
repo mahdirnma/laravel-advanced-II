@@ -13,7 +13,7 @@
                     <label for="subscription">subscription : </label>
                     <select name="subscription" id="subscription" class="w-32 py-1 text-center rounded border border-gray-500 cursor-pointer">
                         <option value="yes">yes</option>
-                        <option value="no">no</option>
+{{--                        <option value="no">no</option>--}}
                     </select>
                 </form>
             </div>
@@ -29,29 +29,56 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($users as $user)
-                        <tr>
-                            <td class="text-center">
-                                <form action="{{--{{route('users.destroy',compact('user'))}}--}}" method="post">
-                                    @csrf
-                                    @method('delete')
-                                    <button type="submit" class="text-green-600">delete</button>
-                                </form>
-                            </td>
-                            <td class="text-center">
-                                <form action="{{--{{route('users.edit',compact('user'))}}--}}" method="get">
-                                    @csrf
-                                    <button type="submit" class="text-cyan-600">update</button>
-                                </form>
-                            </td>
-                            <td class="text-center"><a href="" class="{{$user->subcription==null?'text-gray-400':'text-orange-700'}}" onclick="{{$user->subcription==null?'return false;':''}}">subscription</a></td>
-                            <td class="text-center">{{$user->email}}</td>
-                            <td class="text-center">{{$user->name}}</td>
-                        </tr>
-                    @endforeach
+                    @if($users2!=null)
+                        @foreach($users2 as $user)
+                            <tr>
+                                <td class="text-center">
+                                    <form action="{{--{{route('users.destroy',compact('user'))}}--}}" method="post">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="text-green-600">delete</button>
+                                    </form>
+                                </td>
+                                <td class="text-center">
+                                    <form action="{{--{{route('users.edit',compact('user'))}}--}}" method="get">
+                                        @csrf
+                                        <button type="submit" class="text-cyan-600">update</button>
+                                    </form>
+                                </td>
+                                <td class="text-center"><a href="" class="{{$user->subcription==null?'text-gray-400':'text-orange-700'}}" onclick="{{$user->subcription==null?'return false;':''}}">subscription</a></td>
+                                <td class="text-center">{{$user->email}}</td>
+                                <td class="text-center">{{$user->name}}</td>
+                            </tr>
+                        @endforeach
+                    @elseif($users2==null)
+                        @foreach($users as $user)
+                            <tr>
+                                <td class="text-center">
+                                    <form action="{{--{{route('users.destroy',compact('user'))}}--}}" method="post">
+                                        @csrf
+                                        @method('delete')
+                                        <button type="submit" class="text-green-600">delete</button>
+                                    </form>
+                                </td>
+                                <td class="text-center">
+                                    <form action="{{--{{route('users.edit',compact('user'))}}--}}" method="get">
+                                        @csrf
+                                        <button type="submit" class="text-cyan-600">update</button>
+                                    </form>
+                                </td>
+                                <td class="text-center"><a href="" class="{{$user->subcription==null?'text-gray-400':'text-orange-700'}}" onclick="{{$user->subcription==null?'return false;':''}}">subscription</a></td>
+                                <td class="text-center">{{$user->email}}</td>
+                                <td class="text-center">{{$user->name}}</td>
+                            </tr>
+                        @endforeach
+                    @endif
                     </tbody>
                 </table>
             </div>
-            <div class="mt-5">{{$users->links()}}</div>
+            @if($users2!=null)
+                <div class="mt-5">{{--{{$users2->links()}}--}}</div>
+            @elseif($users2==null)
+                <div class="mt-5">{{$users->links()}}</div>
+            @endif
         </div>
 @endsection

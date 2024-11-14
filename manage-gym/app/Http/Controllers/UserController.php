@@ -23,9 +23,18 @@ class UserController extends Controller
     public function register(){
         return view('auth.register');
     }
-    public function usersIndex()
+    public function usersIndex(Request $request)
     {
+        $users=User::where('is_active',1)->where('role',1)->get();
+        $users2=[];
+        if ($request->subscription=='yes'){
+            foreach ($users as $user) {
+                if ($user->subcription){
+                    array_push($users2,$user);
+                }
+            }
+        }
         $users=User::where('is_active',1)->where('role',1)->paginate(2);
-        return view('admin.users.index',compact('users'));
+        return view('admin.users.index',compact('users','users2'));
     }
 }
