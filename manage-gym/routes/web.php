@@ -29,4 +29,5 @@ Route::prefix('/admin')->middleware(['auth','checkRole'])->group(function(){
 });
 
 Route::get('/',[UserController::class,'home'])->name('home')->middleware(['auth']);
+Route::get('/subscription',[UserController::class,'subscription'])->name('subscription')->middleware(['auth','checkSubscription']);
 

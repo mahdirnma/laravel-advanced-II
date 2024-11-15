@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreUserLoginRequest;
 use App\Http\Requests\StoreUserRequest;
+use App\Models\Log;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -14,6 +15,10 @@ class AuthController extends Controller
     {
         $myData=$request->only('email','password');
         if(Auth::attempt($myData)){
+            $user=Auth::user();
+            Log::create([
+                'user_id'=>$user->id
+            ]);
             return to_route('index');
         }else{
             return redirect()->back();

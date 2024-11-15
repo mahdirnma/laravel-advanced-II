@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Subcription;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -36,5 +37,11 @@ class UserController extends Controller
         }
         $users=User::where('is_active',1)->where('role',1)->paginate(2);
         return view('admin.users.index',compact('users','users2'));
+    }
+
+    public function subscription()
+    {
+        $user=Auth::user();
+        return view('user.subscription',compact('user'));
     }
 }
