@@ -42,6 +42,7 @@ class UserController extends Controller
     public function subscription()
     {
         $user=Auth::user();
-        return view('user.subscription',compact('user'));
+        $subscription=$user->subcription;
+        return view('user.subscription',compact('user','subscription'));
     }
 }
