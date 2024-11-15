@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Subcription;
 use App\Http\Requests\StoreSubcriptionRequest;
 use App\Http\Requests\UpdateSubcriptionRequest;
+use App\Models\User;
 
 class SubcriptionController extends Controller
 {
@@ -22,7 +23,8 @@ class SubcriptionController extends Controller
      */
     public function create()
     {
-        //
+        $users=User::where('role',1)->get();
+        return view('admin.subscriptions.create', compact('users'));
     }
 
     /**
