@@ -28,7 +28,7 @@
                         </div>
                         <div class="w-5/6 h-auto flex flex-row-reverse justify-between pt-4 mb-6">
                             <label for="user" class="font-semibold ml-5">: user</label>
-                            <select name="user" id="user" class="w-2/5 h-8 rounded outline-0 pb-2 pt-1 px-2 border border-gray-400">
+                            <select name="user_id" id="user" class="w-2/5 h-8 rounded outline-0 pb-2 pt-1 px-2 border border-gray-400">
                                 @foreach($users as $user)
                                     <option value="{{$user->id}}">{{$user->name}}</option>
                                 @endforeach

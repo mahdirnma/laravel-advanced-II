@@ -11,7 +11,7 @@ class StoreSubcriptionRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,12 @@ class StoreSubcriptionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'title' => 'required|max:255|string',
+            'description' => 'required|string',
+            'breakfast'=>'required|string|max:255',
+            'lunch'=>'required|string|max:255',
+            'dinner'=>'required|string|max:255',
+            'user_id'=>'required|integer|exists:users,id',
         ];
     }
 }

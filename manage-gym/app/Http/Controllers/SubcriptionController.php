@@ -32,7 +32,12 @@ class SubcriptionController extends Controller
      */
     public function store(StoreSubcriptionRequest $request)
     {
-        //
+        $subscription = Subcription::create($request->validated());
+        if($subscription){
+            return to_route('subcriptions.index');
+        }else{
+            return to_route('subcriptions.create');
+        }
     }
 
     /**
