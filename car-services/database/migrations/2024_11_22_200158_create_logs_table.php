@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('logs', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('vehicle_id')->constrained()->onDelete('cascade')->onUpdate('cascade');
+            $table->integer('km');
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('log_service', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('log_id');
+            $table->unsignedBigInteger('service_id');
+            $table->foreign('log_id')->references('id')->on('logs')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('service_id')->references('id')->on('services')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
