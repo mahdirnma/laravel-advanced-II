@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Service;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,6 +13,15 @@ class ServiceSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Service::create([
+            'title' => 'engine oil check',
+            'description' => 'check and change engine oil if it is needed',
+            'km' => '5000,10000,15000,20000',
+        ]);
+        Service::create([
+            'title' => 'timing belt check',
+            'description' => 'check and change timing belt oil if it is needed',
+            'km' => '40000,80000',
+        ]);
     }
 }
