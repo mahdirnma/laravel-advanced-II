@@ -8,4 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Log extends Model
 {
     use HasFactory;
+    protected $fillable=[
+        'vehicle_id',
+        'km',
+        'is_active',
+    ];
+    public function vehicle(){
+        return $this->belongsTo(Vehicle::class);
+    }
+
+    public function services()
+    {
+        return $this->belongsToMany(Service::class);
+    }
 }
