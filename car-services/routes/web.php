@@ -14,8 +14,11 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/',[UserController::class,'index'])->name('index')->middleware('auth');
 Route::get('/login',[UserController::class,'login'])->name('login.show');
 Route::post('/login',[AuthController::class,'login'])->name('login');
 Route::get('/register',[UserController::class,'register'])->name('register.show');
 Route::post('/logout',[AuthController::class,'logout'])->name('logout');
+
+Route::get('/',[UserController::class,'index'])->name('index')->middleware('auth');
+Route::get('/services',[UserController::class,'services'])->name('services')->middleware('auth');
+
