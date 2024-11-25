@@ -16,12 +16,12 @@ class ServiceSeeder extends Seeder
         Service::create([
             'title' => 'engine oil check',
             'description' => 'check and change engine oil if it is needed',
-            'km' => '5000,10000,15000,20000',
+            'km' => 5000,
         ]);
         Service::create([
             'title' => 'timing belt check',
             'description' => 'check and change timing belt oil if it is needed',
-            'km' => '40000,80000',
+            'km' => 40000,
         ]);
     }
 }

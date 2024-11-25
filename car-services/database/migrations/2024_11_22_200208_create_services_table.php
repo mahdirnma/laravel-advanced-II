@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('description');
-            $table->string('km');
+            $table->integer('km');
             $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
