@@ -7,7 +7,7 @@
         <div class="w-[90%] h-5/6 bg-white rounded-xl pt-3 flex flex-col items-center">
             <div class="w-[90%] h-1/5 flex flex-row-reverse justify-between items-center border-b">
                 <h2 class="text-xl"> : خودروی مورد نظر را انتخاب کنید</h2>
-                <a href="" class="px-4 py-4 bg-gray-500 text-white rounded-xl hover:bg-gray-600 hover:scale-110 transition-all">افزودن خودرو</a>
+                <a href="{{route('vehicle.create')}}" class="px-4 py-4 bg-gray-500 text-white rounded-xl hover:bg-gray-600 hover:scale-110 transition-all">افزودن خودرو</a>
             </div>
             <div class="w-[90%] h-3/5 flex flex-col justify-center">
                 <div class="w-[100%] h-full pt-5 flex justify-center">
