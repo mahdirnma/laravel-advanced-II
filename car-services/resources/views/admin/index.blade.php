@@ -13,7 +13,8 @@
                 <div class="w-[100%] h-full pt-5 flex justify-center">
                     @foreach($user->vehicles as $vehicle)
                     <form action="{{route('services')}}" method="get" class="w-1/4 h-full flex flex-row-reverse">
-                            <div class="w-full h-52 flex-col text-right border border-gray-500 py-2 px-4 shadow-xl shadow-stone-500 rounded-xl ml-8">
+                        @csrf
+                        <div class="w-full h-52 flex-col text-right border border-gray-500 py-2 px-4 shadow-xl shadow-stone-500 rounded-xl ml-8">
                                 <p class="text-center font-semibold text-lg  mb-5">{{$vehicle->name}}</p>
                                 <label for="km" dir="rtl" class="">کیلومتر خودروی خودرا وارد کنید : </label>
                                 <input type="number" name="km" min="0" id="km" class="border border-gray-500 rounded mt-8 pl-2">

@@ -21,4 +21,5 @@ Route::post('/logout',[AuthController::class,'logout'])->name('logout');
 
 Route::get('/',[UserController::class,'index'])->name('index')->middleware('auth');
 Route::get('/services',[UserController::class,'services'])->name('services')->middleware('auth');
+Route::post('/services/set',[UserController::class,'service_set'])->name('service.set')->middleware('auth');
 

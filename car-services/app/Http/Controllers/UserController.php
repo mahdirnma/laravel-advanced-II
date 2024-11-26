@@ -49,4 +49,13 @@ class UserController extends Controller
             return redirect()->back();
         }
     }
+
+    public function service_set(Request $request)
+    {
+        $log_id=$request->log;
+        $service_id=$request->service;
+        $service=Service::find($service_id);
+        $service->logs()->attach($log_id);
+        return to_route('index');
+    }
 }
