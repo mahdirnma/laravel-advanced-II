@@ -11,14 +11,11 @@
 <body>
 <div class="w-svw h-svh">
     <div class="w-full h-[12%] flex items-center flex-row-reverse pr-12 text-xl">
-        <h1 class="font-bold text-xl">admin panel</h1>
+        <h1 class="font-bold text-xl">user panel</h1>
         <div class="w-5/6 h-full flex items-center justify-center">
             <nav>
                 <ul class="flex flex-row-reverse">
-                    <li class="w-44 h-full flex justify-center items-center font-mono text-balance"><a href="{{--{{route('posts.index')}}--}}">posts</a></li>
-                    <li class="w-44 h-full flex justify-center items-center font-mono text-balance"><a href="{{--{{route('categories.index')}}--}}">categories</a></li>
-                    <li class="w-44 h-full flex justify-center items-center font-mono text-balance"><a href="{{--{{route('tags.index')}}--}}">tags</a></li>
-                    <li class="w-44 h-full flex justify-center items-center font-mono text-balance"><a href="{{--{{route('images.index')}}--}}">images</a></li>
+{{--                    <li class="w-44 h-full flex justify-center items-center font-mono text-balance"><a href="--}}{{--{{route('posts.index')}}--}}{{--">posts</a></li>--}}
                 </ul>
             </nav>
         </div>
