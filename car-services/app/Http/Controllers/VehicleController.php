@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Vehicle;
 use App\Http\Requests\StoreVehicleRequest;
 use App\Http\Requests\UpdateVehicleRequest;
+use Illuminate\Support\Facades\Auth;
 
 class VehicleController extends Controller
 {
@@ -29,7 +30,17 @@ class VehicleController extends Controller
      */
     public function store(StoreVehicleRequest $request)
     {
-        //
+        $name = $request->input('name');
+        $user_id=Auth::id();
+        $vehicle=Vehicle::create([
+            'name'=>$name,
+            'user_id'=>$user_id
+        ]);
+        if($vehicle){
+            return to_route('index');
+        }else{
+            return redirect()->back();
+        }
     }
 
     /**
