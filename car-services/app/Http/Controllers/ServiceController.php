@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Service;
 use App\Http\Requests\StoreServiceRequest;
 use App\Http\Requests\UpdateServiceRequest;
+use Illuminate\Support\Facades\Auth;
 
 class ServiceController extends Controller
 {
@@ -13,7 +14,7 @@ class ServiceController extends Controller
      */
     public function index()
     {
-        //
+        $user=Auth::user();
     }
 
     /**
