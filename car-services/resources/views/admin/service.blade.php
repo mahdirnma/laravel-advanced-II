@@ -17,6 +17,15 @@
                                 <p class="text-center font-semibold text-lg  mb-5">{{$service->title}}</p>
                                 <p class="text-center mb-5"> : کیلومتر باقی مانده برای این سرویس</p>
                                 <p class="text-center mb-5 font-bold text-red-800 text-xl">{{$service->km}}</p>
+{{--
+                                <p class="text-center mb-5 font-bold text-red-800 text-xl">
+                                    @if($service->logs->last()!=null)
+                                        {{$service->logs->last()->km}}
+                                    @else
+                                        {{$service->km}}
+                                    @endif
+                                </p>
+--}}
                                 <div class="w-full h-14 flex items-center justify-center pt-4">
                                     <button type="submit" class="bg-gray-300 pt-1 pb-2 px-2 rounded hover:bg-gray-700 hover:text-white transition-all">ثبت</button>
                                 </div>

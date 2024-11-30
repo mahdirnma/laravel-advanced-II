@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Log;
 use App\Models\Service;
+use App\Models\Vehicle;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -24,16 +25,28 @@ class UserController extends Controller
 
     public function services(Request $request)
     {
+        $service=Service::find($request->vehicle_id);
         $n_km=$request->km;
         $services=Service::all();
         $vehicle_id=$request->vehicle_id;
         foreach ($services as $service) {
             $km=$service->km;
             if ($n_km>$km){
-                $x=(floor($n_km/$km))+1;
-                $x=($x*$km)-$n_km;
+                if($service->logs->last()==null){
+                    $x=(floor($n_km/$km))+1;
+                    $x=($x*$km)-$n_km;
+                }else{
+                    $last_service=$service->logs->last()->km;
+                    $x=floor($n_km/$km);
+                    $x=(($x*$km)+$last_service)-$n_km;
+                }
             }else{
-                $x=$km-$n_km;
+                if($service->logs->last()==null){
+                    $x=$km-$n_km;
+                }else{
+                    $last_service=$service->logs->last()->km;
+                    $x=($km+$last_service)-$n_km;
+                }
             }
             $id=$service->id;
             $y=$services->find($id);
